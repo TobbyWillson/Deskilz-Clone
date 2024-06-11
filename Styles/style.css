@@ -39,6 +39,26 @@ ul {
   margin: auto;
 }
 
+/* Mobile View */
+.mobile-view {
+  display: none;
+}
+
+.mobile-view .ham-btn .hamline {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.ham-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
 /* Background Section */
 .bg-img {
   background: url(../images/hamburger-5630646_640.jpg);
@@ -402,6 +422,10 @@ footer .clone {
     margin: auto;
   }
 
+  .mobile-view {
+    display: none;
+  }
+
   .card-group .card h4 {
     font-size: 13px;
     max-width: 95%;
@@ -462,6 +486,10 @@ footer .clone {
 @media (max-width: 1025px) {
   .navbar {
     display: none;
+  }
+
+  .mobile-view {
+    display: block;
   }
 
   .card-group .card h4 {
@@ -639,7 +667,7 @@ footer .clone {
   }
 
   .next .text-head {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .food-name .card-group .title-price-flex {
@@ -648,15 +676,32 @@ footer .clone {
 }
 
 @media (max-width: 450px) {
+  .container {
+    max-width: 370px;
+    margin: auto;
+  }
+
   .next .text-head {
-    font-size: 2.5rem;
+    font-size: 1.7rem;
+  }
+
+  footer .container {
+    max-width: 320px;
   }
 }
 
 @media (max-width: 400px) {
   .container {
-    max-width: 350px;
+    max-width: 340px;
     margin: auto;
+  }
+
+  .ham-btn {
+    margin-bottom: 10px;
+  }
+
+  :is(.header, .bg-img) {
+    height: 78vh;
   }
 
   .food-name .card-group .title-price-flex {
@@ -664,12 +709,32 @@ footer .clone {
   }
 
   .next .text-head {
-    font-size: 2.3rem;
+    font-size: 2rem;
+    text-wrap: wrap;
+    line-height: 2.5rem;
+    padding-bottom: 15px;
+  }
+
+  .just-line {
+    margin-bottom: 3px;
+  }
+
+  .nav-down {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  :is(.location, .location span) {
+    font-size: 12px;
   }
 
   .card-group .card p {
     font-size: 12px;
     max-width: 100%;
     padding-bottom: 10px;
+  }
+
+  footer .container {
+    max-width: 300px;
   }
 }
