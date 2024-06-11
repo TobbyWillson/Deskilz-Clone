@@ -40,23 +40,39 @@ ul {
 }
 
 /* Mobile View */
-.mobile-view {
+header .menu {
   display: none;
 }
 
-.mobile-view .ham-btn .hamline {
-  width: 30px;
-  height: 3px;
+header .menu.show {
+  display: block;
+  z-index: 5;
+  position: absolute;
+  width: 88%;
+  top: 50px;
+  left: 10px;
   background-color: white;
-  margin-bottom: 5px;
+  color: black;
+  border-radius: 15px;
 }
 
-.ham-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  cursor: pointer;
-  margin-bottom: 40px;
+.menu ul {
+  padding: 10px 20px;
+}
+
+.menu ul li a {
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+}
+
+.menu ul li:last-child {
+  padding-top: 20px;
+}
+
+.menu ul li a:hover {
+  font-weight: bold;
+  transition: 2s;
 }
 
 /* Background Section */
