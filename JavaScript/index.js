@@ -39,3 +39,16 @@ if (dayOfWeek === 6 || day === 7) {
 
   lists[2].textContent = "";
 }
+
+// Add to cart
+const cardIcons = document.querySelectorAll(".card .icon");
+
+cardIcons.forEach((item) => {
+  item.addEventListener("click", () => {
+    if (dayOfWeek === 6 || dayOfWeek === 7) {
+      alert("check back on Monday");
+    } else {
+      alert("No problems, keep ordering");
+    }
+  });
+});

@@ -344,7 +344,6 @@ header .mobile-view .menu.show {
   display: flex;
   width: 25px;
   height: 25px;
-  padding: 10px;
   border-radius: 50%;
   background-color: black;
   justify-content: center;
@@ -381,7 +380,6 @@ header .mobile-view .menu.show {
 
 .card-group .card:hover {
   border: 2px solid rgb(141, 141, 141);
-  cursor: pointer;
 }
 
 .food-name .card-group .title-price-flex {
