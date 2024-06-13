@@ -236,6 +236,10 @@ header .mobile-view .menu.show {
   color: rgb(3, 160, 3);
 }
 
+.weekend {
+  color: red;
+}
+
 .more-link {
   color: blue;
   text-decoration: underline;
@@ -294,10 +298,12 @@ header .mobile-view .menu.show {
   display: block;
   background-color: rgb(253, 251, 251);
   width: 180px;
+  height: 190px;
   position: absolute;
-  z-index: 8;
+  z-index: 7;
   top: 40px;
   right: 10px;
+  overflow-y: auto;
 }
 
 .mobile-view .other-tabs ul {
@@ -330,22 +336,23 @@ header .mobile-view .menu.show {
 }
 
 .card-group .card i {
-  font-size: 10px;
+  font-size: 14px;
   color: white;
 }
 
 .card-group .card .icon {
   display: flex;
-  max-width: 10px;
-  max-height: 10px;
+  width: 25px;
+  height: 25px;
   padding: 10px;
-  border-radius: 100px;
+  border-radius: 50%;
   background-color: black;
   justify-content: center;
   align-items: center;
   position: absolute;
   bottom: 15px;
   right: 15px;
+  z-index: 8;
 }
 .card-group .card .icon:hover {
   cursor: pointer;

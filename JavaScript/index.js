@@ -24,3 +24,18 @@ moreTab.addEventListener("click", () => {
   otherTabs.classList.toggle("show");
   arrow.classList.toggle("fa-angle-up");
 });
+
+// Checking for the date
+const day = new Date();
+const dayOfWeek = day.getDay();
+
+const lists = document.querySelectorAll(".location li");
+
+if (dayOfWeek === 6 || day === 7) {
+  lists[1].innerHTML = `<li>
+            <i class="fas fa-clock"></i>
+            <span class="weekend">We are closed, check back on Monday</span>
+          </li>`;
+
+  lists[2].textContent = "";
+}
