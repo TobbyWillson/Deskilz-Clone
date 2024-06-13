@@ -297,7 +297,7 @@ header .mobile-view .menu.show {
   border-radius: 10px;
   display: block;
   background-color: rgb(253, 251, 251);
-  width: 180px;
+  width: 200px;
   height: 190px;
   position: absolute;
   z-index: 7;
@@ -308,6 +308,10 @@ header .mobile-view .menu.show {
 
 .mobile-view .other-tabs ul {
   padding: 0px 20px;
+}
+
+.mobile-view .other-tabs a {
+  display: block;
 }
 
 .mobile-view .other-tabs ul li {
@@ -348,6 +352,7 @@ header .mobile-view .menu.show {
   background-color: black;
   justify-content: center;
   align-items: center;
+  text-align: center;
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -519,7 +524,7 @@ footer .clone {
   }
 
   .card-group .card h4 {
-    font-size: 13px;
+    font-size: 15px;
     max-width: 95%;
     padding-bottom: 10px;
   }
@@ -736,7 +741,6 @@ footer .clone {
 @media (max-width: 605px) {
   .container {
     max-width: 480px;
-    margin: auto;
   }
 
   .next .text-head {
@@ -763,7 +767,6 @@ footer .clone {
 @media (max-width: 505px) {
   .container {
     max-width: 400px;
-    margin: auto;
   }
 
   .next .text-head {
@@ -782,7 +785,6 @@ footer .clone {
 @media (max-width: 450px) {
   .container {
     max-width: 370px;
-    margin: auto;
   }
 
   .next .text-head {
@@ -862,12 +864,39 @@ footer .clone {
   }
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 1200px) {
+  .mobile-view {
+    display: none;
+  }
+
   .next .nav-middle {
-    margin: 120px;
+    margin-top: 50px;
   }
 
   .mobile-view {
     display: none;
+  }
+
+  .location {
+    font-size: 20px;
+  }
+
+  .general-view .tab-bar ul li a {
+    font-size: 18px;
+  }
+
+  .card-group .card h4 {
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+
+  .card-group .card p {
+    font-size: 15px;
+    max-width: 100%;
+    padding-bottom: 15px;
+  }
+
+  .food-name .card-group .title-price-flex {
+    max-width: 450px;
   }
 }
