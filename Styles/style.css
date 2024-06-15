@@ -202,6 +202,8 @@ header .mobile-view .menu.show {
   padding-right: 10px;
 }
 
+/* cart button */
+
 /* WhatsApp Button */
 .whatsapp {
   display: flex;
@@ -265,7 +267,7 @@ header .mobile-view .menu.show {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  padding-bottom: 25px;
 }
 
 .mobile-view .tab-bar .more-tab i {
@@ -301,7 +303,7 @@ header .mobile-view .menu.show {
   height: 190px;
   position: absolute;
   z-index: 7;
-  top: 40px;
+  top: 30px;
   right: 10px;
   overflow-y: auto;
 }
@@ -318,15 +320,8 @@ header .mobile-view .menu.show {
   padding: 10px 0;
 }
 
-.tab-bar .food-tab ul {
-  display: flex;
-  padding: 10px 0 15px 0;
-  font-size: 14px;
-}
-
 .mobile-view .tab-bar ul a {
   font-size: 20px;
-  margin-right: 30px;
   font-weight: bolder;
 }
 
@@ -341,7 +336,12 @@ header .mobile-view .menu.show {
 
 .card-group .card i {
   font-size: 14px;
+  color: rgba(255, 255, 255, 0.747);
+}
+
+.card-group .card i:hover {
   color: white;
+  transition: 1s;
 }
 
 .card-group .card .icon {
@@ -487,7 +487,7 @@ footer .open-hr-flex i {
 
 /* Scroll Margin */
 .food-name {
-  scroll-margin-top: 2.7rem;
+  scroll-margin-top: 2.4rem;
 }
 
 /* My Extra */
@@ -504,6 +504,147 @@ footer .clone {
   color: rgb(255, 255, 255);
   border-radius: 5px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -1px -1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Remove item in cart button */
+.minus i {
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.747) !important;
+}
+
+.minus .ic-bg {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: black;
+  width: 59px;
+  height: 25px;
+  border-radius: 15px 0 0px 15px;
+  color: white;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.minus .ic-bg i {
+  padding-right: 15px;
+  padding-left: 10px;
+}
+.minus .ic-bg i:hover {
+  color: white !important;
+  transition: 1s;
+}
+
+.minus .ic-bg p {
+  font-size: 9px !important;
+}
+
+.minus {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  right: 30px;
+  z-index: 2;
+}
+
+.minus.show {
+  display: flex;
+  align-items: center;
+  transition: 5s;
+}
+
+/* Cart icon and number of item */
+.cart {
+  display: none;
+  position: relative;
+}
+
+.cart-wrapper {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  z-index: 9;
+}
+
+.cart:hover {
+  cursor: pointer;
+}
+
+.cart.show {
+  display: flex;
+  height: 55px;
+  width: 55px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  background-color: rgb(119, 119, 119);
+  border: 2px dotted black;
+  position: relative;
+  z-index: 5;
+}
+
+.cart i {
+  display: flex;
+  font-size: 23px;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cart .item-no {
+  display: flex;
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  font-size: 10px;
+  top: 0px;
+  left: -5px;
+}
+
+/* Popup messages and alerts */
+:is(.item-add, .item-remove, .open-time, .close-time, .sunday-open-time, .sat-close-time, .sunMon-open, .goody) {
+  display: none;
+}
+
+:is(.item-add.show, .goody.show) {
+  display: block;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0px;
+  padding: 35px 0;
+
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+:is(.item-remove.show, .open-time.show, .close-time.show, .sunday-open-time.show, .sat-close-time.show, .sunMon-open.show) {
+  display: block;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0px;
+  padding: 35px 0;
+
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.item-add.show {
+  position: fixed;
+  top: 100px;
+  left: 0;
 }
 
 /* Responsiveness */
@@ -585,6 +726,9 @@ footer .clone {
     display: none;
   }
 
+  .next .nav-middle {
+    margin-top: 160px;
+  }
   .mobile-view {
     display: block;
   }
@@ -756,7 +900,7 @@ footer .clone {
   }
 
   :is(.header, .bg-img) {
-    height: 85vh;
+    height: 90vh;
   }
 
   .food-name .card-group .title-price-flex {
@@ -766,7 +910,11 @@ footer .clone {
 
 @media (max-width: 505px) {
   .container {
-    max-width: 400px;
+    max-width: 450px;
+  }
+
+  .next .nav-middle {
+    margin-top: 100px;
   }
 
   .next .text-head {
@@ -774,17 +922,17 @@ footer .clone {
   }
 
   :is(.header, .bg-img) {
-    height: 78vh;
+    height: 85vh;
   }
 
   .food-name .card-group .title-price-flex {
-    width: 400px;
+    width: 450px;
   }
 }
 
 @media (max-width: 450px) {
   .container {
-    max-width: 370px;
+    max-width: 410px;
   }
 
   .next .text-head {
@@ -802,7 +950,7 @@ footer .clone {
 
 @media (max-width: 400px) {
   .container {
-    max-width: 340px;
+    max-width: 370px;
     margin: auto;
   }
 
@@ -832,6 +980,10 @@ footer .clone {
 
   :is(.location, .location span) {
     font-size: 12px;
+  }
+
+  .minus .ic-bg p {
+    padding-top: 10px;
   }
 
   .card-group .card p {
