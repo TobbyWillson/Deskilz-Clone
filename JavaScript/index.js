@@ -86,21 +86,21 @@ const cardIcons = document.querySelectorAll(".card .icon");
 function timeCheck() {
   cardIcons.forEach((item) => {
     item.addEventListener("click", () => {
-      if (dayOfWeek <= 6 && time < 10) {
-        setTimeout(() => openTime.classList.add("show"), 500);
-        setTimeout(() => openTime.classList.remove("show"), 3000);
-      } else if (dayOfWeek < 6 && time >= 20) {
-        setTimeout(() => closeTime.classList.add("show"), 500);
-        setTimeout(() => closeTime.classList.remove("show"), 3000);
+      if (dayOfWeek > 0 && dayOfWeek <= 6 && time < 10) {
+        setTimeout(() => openTime.classList.add("show"), 2000);
+        setTimeout(() => openTime.classList.remove("show"), 4000);
+      } else if (dayOfWeek > 0 && dayOfWeek <= 6 && time >= 20) {
+        setTimeout(() => closeTime.classList.add("show"), 2000);
+        setTimeout(() => closeTime.classList.remove("show"), 4000);
       } else if (dayOfWeek === 6 && time >= 20) {
-        setTimeout(() => satClose.classList.add("show"), 500);
-        setTimeout(() => satClose.classList.remove("show"), 3000);
+        setTimeout(() => satClose.classList.add("show"), 2000);
+        setTimeout(() => satClose.classList.remove("show"), 4000);
       } else if (dayOfWeek === 0 && time < 14) {
-        setTimeout(() => sunOpen.classList.add("show"), 500);
-        setTimeout(() => sunOpen.classList.remove("show"), 3000);
+        setTimeout(() => sunOpen.classList.add("show"), 2000);
+        setTimeout(() => sunOpen.classList.remove("show"), 4000);
       } else if (dayOfWeek === 0 && time >= 20) {
-        setTimeout(() => sunMonOpen.classList.add("show"), 500);
-        setTimeout(() => sunMonOpen.classList.remove("show"), 3000);
+        setTimeout(() => sunMonOpen.classList.add("show"), 2000);
+        setTimeout(() => sunMonOpen.classList.remove("show"), 4000);
       } else {
         console.log("all good");
       }
@@ -140,24 +140,24 @@ function addItem() {
         cartItemNo.textContent = `${totalCount}`;
         itemAddPa.textContent = `1 ${title.textContent} added to cart`;
 
-        setTimeout(() => itemAdd.classList.add("show"), 500);
+        setTimeout(() => itemAdd.classList.add("show"), 2000);
         setTimeout(() => itemAdd.classList.remove("show"), 3500);
-      } else if (dayOfWeek < 6 && time >= 20) {
+      } else if (dayOfWeek > 0 && dayOfWeek <= 6 && time >= 20) {
         cart.classList.remove("show");
-        setTimeout(() => closeTime.classList.add("show"), 500);
-        setTimeout(() => closeTime.classList.remove("show"), 3000);
+        setTimeout(() => closeTime.classList.add("show"), 2000);
+        setTimeout(() => closeTime.classList.remove("show"), 4000);
       } else if (dayOfWeek === 6 && time >= 20) {
         cart.classList.remove("show");
-        setTimeout(() => satClose.classList.add("show"), 500);
-        setTimeout(() => satClose.classList.remove("show"), 3000);
+        setTimeout(() => satClose.classList.add("show"), 2000);
+        setTimeout(() => satClose.classList.remove("show"), 4000);
       } else if (dayOfWeek === 0 && time >= 20) {
         cart.classList.remove("show");
-        setTimeout(() => sunMonOpen.classList.add("show"), 500);
-        setTimeout(() => sunMonOpen.classList.remove("show"), 3000);
+        setTimeout(() => sunMonOpen.classList.add("show"), 2000);
+        setTimeout(() => sunMonOpen.classList.remove("show"), 4000);
       } else if (dayOfWeek === 0 && time < 14) {
         cart.classList.remove("show");
-        setTimeout(() => sunOpen.classList.add("show"), 500);
-        setTimeout(() => sunOpen.classList.remove("show"), 3000);
+        setTimeout(() => sunOpen.classList.add("show"), 2000);
+        setTimeout(() => sunOpen.classList.remove("show"), 4000);
       } else if (dayOfWeek === 0 && time >= 14 && time < 20) {
         count++;
 
@@ -170,8 +170,8 @@ function addItem() {
 
         itemAddPa.textContent = `1 ${title.textContent} added to cart`;
         cartItemNo.textContent = `${totalCount}`;
-        setTimeout(() => itemAdd.classList.add("show"), 500);
-        setTimeout(() => itemAdd.classList.remove("show"), 3000);
+        setTimeout(() => itemAdd.classList.add("show"), 2000);
+        setTimeout(() => itemAdd.classList.remove("show"), 4000);
       } else {
         console.log("Tada");
       }
@@ -207,8 +207,8 @@ function removeItem() {
       minusPa.textContent = `${count}`;
       cartItemNo.textContent = `${totalCount}`;
       itemRemovePa.textContent = `1 ${title.textContent} removed from cart`;
-      setTimeout(() => itemRemove.classList.add("show"), 500);
-      setTimeout(() => itemRemove.classList.remove("show"), 3000);
+      setTimeout(() => itemRemove.classList.add("show"), 2000);
+      setTimeout(() => itemRemove.classList.remove("show"), 4000);
 
       if (count === 0) {
         cardMinus.classList.remove("show");

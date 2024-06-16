@@ -208,7 +208,7 @@ header .mobile-view .menu.show {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: rgb(78, 255, 78);
   width: 55px;
   height: 55px;
   border-radius: 100%;
@@ -619,7 +619,7 @@ footer .clone {
   width: 100%;
   top: 0;
   left: 0px;
-  padding: 35px 0;
+  padding: 25px 0;
 
   background-color: green;
   color: white;
@@ -633,7 +633,7 @@ footer .clone {
   width: 100%;
   top: 0;
   left: 0px;
-  padding: 35px 0;
+  padding: 25px 0;
 
   background-color: red;
   color: white;
