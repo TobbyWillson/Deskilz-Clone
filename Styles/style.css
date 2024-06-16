@@ -108,7 +108,6 @@ header .mobile-view .menu.show {
 }
 
 /* Header Navbar*/
-
 .header .navbar ul {
   display: flex;
   justify-content: end;
@@ -507,9 +506,9 @@ footer .clone {
 }
 
 /* Remove item in cart button */
-.minus i {
-  font-size: 11px !important;
-  color: rgba(255, 255, 255, 0.747) !important;
+.minus .ic-bg i {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.747);
 }
 
 .minus .ic-bg {
@@ -531,7 +530,7 @@ footer .clone {
   padding-left: 10px;
 }
 .minus .ic-bg i:hover {
-  color: white !important;
+  color: white;
   transition: 1s;
 }
 
@@ -609,11 +608,11 @@ footer .clone {
 }
 
 /* Popup messages and alerts */
-:is(.item-add, .item-remove, .open-time, .close-time, .sunday-open-time, .sat-close-time, .sunMon-open, .goody) {
+:is(.item-add, .item-remove, .open-time, .close-time, .sun-open-time, .sat-close-time, .sunMon-open) {
   display: none;
 }
 
-:is(.item-add.show, .goody.show) {
+.item-add.show {
   display: block;
   z-index: 10;
   position: fixed;
@@ -627,7 +626,7 @@ footer .clone {
   text-align: center;
 }
 
-:is(.item-remove.show, .open-time.show, .close-time.show, .sunday-open-time.show, .sat-close-time.show, .sunMon-open.show) {
+:is(.item-remove.show, .open-time.show, .close-time.show, .sun-open-time.show, .sat-close-time.show, .sunMon-open.show) {
   display: block;
   z-index: 10;
   position: fixed;
@@ -639,12 +638,6 @@ footer .clone {
   background-color: red;
   color: white;
   text-align: center;
-}
-
-.item-add.show {
-  position: fixed;
-  top: 100px;
-  left: 0;
 }
 
 /* Responsiveness */
@@ -950,7 +943,7 @@ footer .clone {
 
 @media (max-width: 400px) {
   .container {
-    max-width: 370px;
+    max-width: 350px;
     margin: auto;
   }
 
@@ -1050,5 +1043,10 @@ footer .clone {
 
   .food-name .card-group .title-price-flex {
     max-width: 450px;
+  }
+
+  .minus .ic-bg p {
+    padding-top: 15px;
+    font-size: 11px !important;
   }
 }

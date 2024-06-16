@@ -32,21 +32,21 @@ const time = day.getHours();
 
 const lists = document.querySelectorAll(".location li");
 
-if (dayOfWeek === 7 && time >= 20) {
+if (dayOfWeek === 0 && time >= 20) {
   lists[1].innerHTML = `<li>
             <i class="fas fa-clock"></i>
             <span class="weekend">We are closed, check back on Monday by 10AM</span>
           </li>`;
 
   lists[2].textContent = "";
-} else if (dayOfWeek === 7 && time < 14) {
+} else if (dayOfWeek === 0 && time < 14) {
   lists[1].innerHTML = `<li>
             <i class="fas fa-clock"></i>
             <span class="weekend">Opening hour is 2PM</span>
           </li>`;
 
   lists[2].textContent = "";
-} else if (dayOfWeek <= 6 && time >= 20) {
+} else if (dayOfWeek < 6 && time >= 20) {
   lists[1].innerHTML = `<li>
             <i class="fas fa-clock"></i>
             <span class="weekend">We are closed, check back tomorrow by 10AM</span>
@@ -76,151 +76,157 @@ const itemRemove = document.querySelector(".item-remove");
 const itemAdd = document.querySelector(".item-add");
 const openTime = document.querySelector(".open-time");
 const closeTime = document.querySelector(".close-time");
-const satClose = document.querySelector("sat-close-time");
-const sundayOpen = document.querySelector("sunday-open-time");
+const satClose = document.querySelector(".sat-close-time");
+const sunOpen = document.querySelector(".sun-open-time");
 const sunMonOpen = document.querySelector(".sunMon-open");
 const good = document.querySelector(".goody");
 const cardIcons = document.querySelectorAll(".card .icon");
 
 // Add to cart
-function plusClick() {
+function timeCheck() {
   cardIcons.forEach((item) => {
     item.addEventListener("click", () => {
       if (dayOfWeek <= 6 && time < 10) {
         setTimeout(() => openTime.classList.add("show"), 500);
         setTimeout(() => openTime.classList.remove("show"), 3000);
-      } else if (dayOfWeek <= 6 && time >= 10 && time <= 20) {
-        setTimeout(() => good.classList.add("show"), 500);
-        setTimeout(() => good.classList.remove("show"), 3000);
-      } else if (dayOfWeek <= 6 && time >= 20) {
+      } else if (dayOfWeek < 6 && time >= 20) {
         setTimeout(() => closeTime.classList.add("show"), 500);
         setTimeout(() => closeTime.classList.remove("show"), 3000);
       } else if (dayOfWeek === 6 && time >= 20) {
         setTimeout(() => satClose.classList.add("show"), 500);
         setTimeout(() => satClose.classList.remove("show"), 3000);
-      } else if (dayOfWeek === 7 && time < 14) {
-        setTimeout(() => sundayOpen.classList.add("show"), 500);
-        setTimeout(() => sundayOpen.classList.remove("show"), 3000);
-      } else if (dayOfWeek === 7 && time >= 14) {
+      } else if (dayOfWeek === 0 && time < 14) {
+        setTimeout(() => sunOpen.classList.add("show"), 500);
+        setTimeout(() => sunOpen.classList.remove("show"), 3000);
+      } else if (dayOfWeek === 0 && time >= 20) {
         setTimeout(() => sunMonOpen.classList.add("show"), 500);
         setTimeout(() => sunMonOpen.classList.remove("show"), 3000);
       } else {
-        console.log("crryy");
+        console.log("all good");
       }
     });
   });
 }
 
-plusClick();
+timeCheck();
 
-// Cart Items count
-let count = [];
+////////////// Original/////////////////////////
 
-const minus = document.querySelectorAll(".card .minus");
-const minusPa = document.querySelectorAll(".card .minus p");
-const minusIcon = document.querySelectorAll(".minus .ic-bg i");
 const cartItemNo = document.querySelector(".cart .item-no p");
 const cart = document.querySelector(".cart");
 
+let totalCount = 0;
+
 function addItem() {
   cardIcons.forEach((item) => {
-    item.addEventListener("click", () => {
-      if (dayOfWeek <= 6 && (time > 10 || time < 20)) {
-        count.push(1);
+    item.addEventListener("click", (e) => {
+      const parentEl = item.parentElement;
+      const title = parentEl.querySelector(".food-title h4");
+      const minus = parentEl.querySelector(".card .minus");
+      const minusPa = parentEl.querySelector(".card .minus p");
+      const minusIcon = parentEl.querySelector(".minus .ic-bg i");
+      const itemAddPa = document.querySelector(".item-add p");
 
-        minus.forEach((item) => {
-          item.classList.add("show");
-        });
-        minusPa.forEach((item) => {
-          item.textContent = `${count.length}`;
-        });
+      let count = parseInt(minusPa.textContent) || 0;
+      if (dayOfWeek > 0 && dayOfWeek <= 6 && time >= 10 && time < 20) {
+        count++;
 
+        minus.classList.add("show");
+
+        minusPa.textContent = `${count}`;
+
+        totalCount++;
         cart.classList.add("show");
-        cartItemNo.textContent = `${count.length}`;
+        cartItemNo.textContent = `${totalCount}`;
+        itemAddPa.textContent = `1 ${title.textContent} added to cart`;
 
         setTimeout(() => itemAdd.classList.add("show"), 500);
         setTimeout(() => itemAdd.classList.remove("show"), 3500);
-      } else if (dayOfWeek === 7 && (time > 14 || time < 20)) {
-        count.push(1);
-        // alert("1 item added");
+      } else if (dayOfWeek < 6 && time >= 20) {
+        cart.classList.remove("show");
+        setTimeout(() => closeTime.classList.add("show"), 500);
+        setTimeout(() => closeTime.classList.remove("show"), 3000);
+      } else if (dayOfWeek === 6 && time >= 20) {
+        cart.classList.remove("show");
+        setTimeout(() => satClose.classList.add("show"), 500);
+        setTimeout(() => satClose.classList.remove("show"), 3000);
+      } else if (dayOfWeek === 0 && time >= 20) {
+        cart.classList.remove("show");
+        setTimeout(() => sunMonOpen.classList.add("show"), 500);
+        setTimeout(() => sunMonOpen.classList.remove("show"), 3000);
+      } else if (dayOfWeek === 0 && time < 14) {
+        cart.classList.remove("show");
+        setTimeout(() => sunOpen.classList.add("show"), 500);
+        setTimeout(() => sunOpen.classList.remove("show"), 3000);
+      } else if (dayOfWeek === 0 && time >= 14 && time < 20) {
+        count++;
 
-        minus.forEach((item) => {
-          item.classList.add("show");
-        });
-        minusPa.forEach((item) => {
-          item.textContent = `${count.length}`;
-        });
+        minus.classList.add("show");
 
+        minusPa.textContent = `${count}`;
+
+        totalCount++;
         cart.classList.add("show");
-        cartItemNo.textContent = `${count.length}`;
+
+        itemAddPa.textContent = `1 ${title.textContent} added to cart`;
+        cartItemNo.textContent = `${totalCount}`;
         setTimeout(() => itemAdd.classList.add("show"), 500);
         setTimeout(() => itemAdd.classList.remove("show"), 3000);
       } else {
         console.log("Tada");
       }
 
-      if (count.length === 1) {
-        minusIcon.forEach((item) => {
-          item.classList.remove("fa-minus");
-          item.classList.add("fa-trash");
-        });
+      if (count === 1) {
+        minusIcon.classList.remove("fa-minus");
+        minusIcon.classList.add("fa-trash");
       } else {
-        minusIcon.forEach((item) => {
-          item.classList.remove("fa-trash");
-          item.classList.add("fa-minus");
-        });
+        minusIcon.classList.remove("fa-trash");
+        minusIcon.classList.add("fa-minus");
       }
     });
   });
 }
-
 addItem();
 
+const minus = document.querySelectorAll(".card .minus");
 function removeItem() {
   minus.forEach((event) => {
     event.addEventListener("click", () => {
-      count.pop();
+      const parentEl = event.parentElement;
+      const title = parentEl.querySelector(".food-title h4");
+      const cardMinus = parentEl.querySelector(".card .minus");
+      const minusPa = parentEl.querySelector(".card .minus p");
+      const minusIcon = parentEl.querySelector(".minus .ic-bg i");
+      const itemRemovePa = document.querySelector(".item-remove p");
+      let count = parseInt(minusPa.textContent) || 0;
 
-      minusPa.forEach((item) => {
-        item.textContent = `${count.length}`;
-        cartItemNo.textContent = `${count.length}`;
+      count--;
 
-        setTimeout(() => itemRemove.classList.add("show"), 500);
-        setTimeout(() => itemRemove.classList.remove("show"), 3000);
-      });
-      if (count.length === 0) {
-        minus.forEach((item) => {
-          item.classList.remove("show");
-          cart.classList.remove("show");
-        });
+      totalCount--;
+
+      minusPa.textContent = `${count}`;
+      cartItemNo.textContent = `${totalCount}`;
+      itemRemovePa.textContent = `1 ${title.textContent} removed from cart`;
+      setTimeout(() => itemRemove.classList.add("show"), 500);
+      setTimeout(() => itemRemove.classList.remove("show"), 3000);
+
+      if (count === 0) {
+        cardMinus.classList.remove("show");
       }
 
-      if (count.length === 1) {
-        minusIcon.forEach((item) => {
-          item.classList.remove("fa-minus");
-          item.classList.add("fa-trash");
-        });
+      if (totalCount === 0) {
+        cart.classList.remove("show");
+      }
+
+      if (count === 1) {
+        minusIcon.classList.remove("fa-minus");
+        minusIcon.classList.add("fa-trash");
       } else {
-        minusIcon.forEach((item) => {
-          item.classList.remove("fa-trash");
-          item.classList.add("fa-minus");
-        });
+        minusIcon.classList.remove("fa-trash");
+        minusIcon.classList.add("fa-minus");
       }
     });
   });
 }
 
 removeItem();
-
-// testing testing
-// setTimeout(() => {
-//   minus.forEach((item) => {
-//     item.classList.add("show");
-//   });
-// }, 2000);
-
-// setTimeout(() => {
-//   minus.forEach((item) => {
-//     item.classList.remove("show");
-//   });
-// }, 5000);
