@@ -126,19 +126,25 @@ function addItem() {
       const minusPa = parentEl.querySelector(".card .minus p");
       const minusIcon = parentEl.querySelector(".minus .ic-bg i");
       const itemAddPa = document.querySelector(".item-add p");
+      const plusIcon = parentEl.querySelector(".card .icon i");
 
       let count = parseInt(minusPa.textContent) || 0;
       if (dayOfWeek > 0 && dayOfWeek <= 6 && time >= 10 && time < 20) {
         count++;
 
-        minus.classList.add("show");
-
-        minusPa.textContent = `${count}`;
+        setTimeout(() => (minusPa.textContent = `${count}`), 800);
+        setTimeout(() => minus.classList.add("show"), 800);
 
         totalCount++;
-        cart.classList.add("show");
-        cartItemNo.textContent = `${totalCount}`;
+
+        setTimeout(() => cart.classList.add("show"), 800);
+        setTimeout(() => (cartItemNo.textContent = `${totalCount}`), 800);
+
         itemAddPa.textContent = `1 ${title.textContent} added to cart`;
+        plusIcon.classList.add("fa-spinner");
+        plusIcon.classList.add("fa-spin");
+        setTimeout(() => plusIcon.classList.remove("fa-spinner"), 800);
+        setTimeout(() => plusIcon.classList.remove("fa-spin"), 800);
 
         setTimeout(() => itemAdd.classList.add("show"), 2000);
         setTimeout(() => itemAdd.classList.remove("show"), 3500);
@@ -161,17 +167,22 @@ function addItem() {
       } else if (dayOfWeek === 0 && time >= 14 && time < 20) {
         count++;
 
-        minus.classList.add("show");
-
-        minusPa.textContent = `${count}`;
+        setTimeout(() => (minusPa.textContent = `${count}`), 800);
+        setTimeout(() => minus.classList.add("show"), 800);
 
         totalCount++;
-        cart.classList.add("show");
+
+        setTimeout(() => cart.classList.add("show"), 800);
+        setTimeout(() => (cartItemNo.textContent = `${totalCount}`), 800);
 
         itemAddPa.textContent = `1 ${title.textContent} added to cart`;
-        cartItemNo.textContent = `${totalCount}`;
+        plusIcon.classList.add("fa-spinner");
+        plusIcon.classList.add("fa-spin");
+        setTimeout(() => plusIcon.classList.remove("fa-spinner"), 800);
+        setTimeout(() => plusIcon.classList.remove("fa-spin"), 800);
+
         setTimeout(() => itemAdd.classList.add("show"), 2000);
-        setTimeout(() => itemAdd.classList.remove("show"), 4000);
+        setTimeout(() => itemAdd.classList.remove("show"), 3500);
       } else {
         console.log("Tada");
       }
@@ -180,8 +191,8 @@ function addItem() {
         minusIcon.classList.remove("fa-minus");
         minusIcon.classList.add("fa-trash");
       } else {
-        minusIcon.classList.remove("fa-trash");
-        minusIcon.classList.add("fa-minus");
+        setTimeout(() => minusIcon.classList.remove("fa-trash"), 800);
+        setTimeout(() => minusIcon.classList.add("fa-minus"), 800);
       }
     });
   });
@@ -198,14 +209,17 @@ function removeItem() {
       const minusPa = parentEl.querySelector(".card .minus p");
       const minusIcon = parentEl.querySelector(".minus .ic-bg i");
       const itemRemovePa = document.querySelector(".item-remove p");
+      const plusIcon = parentEl.querySelector(".card .icon i");
+
       let count = parseInt(minusPa.textContent) || 0;
 
       count--;
 
       totalCount--;
 
-      minusPa.textContent = `${count}`;
-      cartItemNo.textContent = `${totalCount}`;
+      setTimeout(() => (minusPa.textContent = `${count}`), 800);
+      setTimeout(() => (cartItemNo.textContent = `${totalCount}`), 800);
+
       itemRemovePa.textContent = `1 ${title.textContent} removed from cart`;
       setTimeout(() => itemRemove.classList.add("show"), 2000);
       setTimeout(() => itemRemove.classList.remove("show"), 4000);
@@ -219,7 +233,7 @@ function removeItem() {
       }
 
       if (count === 1) {
-        minusIcon.classList.remove("fa-minus");
+        setTimeout(() => minusIcon.classList.remove("fa-minus"), 800);
         minusIcon.classList.add("fa-trash");
       } else {
         minusIcon.classList.remove("fa-trash");
