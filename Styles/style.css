@@ -48,19 +48,24 @@ header .navbar-mob .ham-btn {
   font-size: 1.5rem;
 }
 
-header .mobile-view .menu {
-  display: none;
+header .navbar-mob .ham-btn .icon {
+  transition-property: transform;
+  transition-duration: 2s;
 }
 
-header .mobile-view .menu.show {
-  display: block;
+header .mobile-view .menu {
+  display: none;
   z-index: 5;
   position: absolute;
   width: 100%;
   top: 100px;
-  left: 1px;
+  left: 0px;
   background-color: white;
   color: black;
+}
+
+header .mobile-view .menu.show {
+  display: block;
 }
 
 .menu ul li a {

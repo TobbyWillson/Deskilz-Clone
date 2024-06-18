@@ -46,7 +46,7 @@ if (dayOfWeek === 0 && time >= 20) {
           </li>`;
 
   lists[2].textContent = "";
-} else if (dayOfWeek < 6 && time >= 20) {
+} else if (dayOfWeek > 0 && dayOfWeek < 6 && time >= 20) {
   lists[1].innerHTML = `<li>
             <i class="fas fa-clock"></i>
             <span class="weekend">We are closed, check back tomorrow by 10AM</span>
