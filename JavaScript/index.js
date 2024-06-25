@@ -152,6 +152,11 @@ function addItem() {
         cart.classList.remove("show");
         setTimeout(() => closeTime.classList.add("show"), 2000);
         setTimeout(() => closeTime.classList.remove("show"), 4000);
+      } else if (dayOfWeek > 0 && dayOfWeek <= 6 && time > 0 && time < 10) {
+        minus.classList.remove("show");
+        cart.classList.remove("show");
+        setTimeout(() => openTime.classList.add("show"), 2000);
+        setTimeout(() => openTime.classList.remove("show"), 4000);
       } else if (dayOfWeek === 6 && time >= 20) {
         cart.classList.remove("show");
         setTimeout(() => satClose.classList.add("show"), 2000);

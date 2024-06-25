@@ -46,11 +46,11 @@ header .navbar-mob .ham-btn {
   justify-content: end;
   cursor: pointer;
   font-size: 1.5rem;
+  transition: all 1s;
 }
 
-header .navbar-mob .ham-btn .icon {
-  transition-property: transform;
-  transition-duration: 2s;
+header .navbar-mob .ham-btn:hover {
+  transform: scaleX(0.98);
 }
 
 header .mobile-view .menu {
@@ -69,8 +69,7 @@ header .mobile-view .menu.show {
 }
 
 .menu ul li a {
-  transition-property: font-weight, transform;
-  transition: 1.5s;
+  transition: all 1.5s;
 }
 
 .menu ul li {
@@ -91,13 +90,72 @@ header .mobile-view .menu.show {
 }
 
 /* Background Section */
+
+/*  */
+/* .bg-img {
+  background: url(../images/hamburger-5630646_640.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+} */
+
+/*  */
+/*  */
+
 .bg-img {
   background: url(../images/hamburger-5630646_640.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
+  animation-name: bgslideshow;
+  animation-duration: 40s;
+  animation-timing-function: step-start;
+  animation-iteration-count: infinite;
 }
+
+/* Background image slideshow */
+
+@keyframes bgslideshow {
+  0% {
+    background: url(../images/hamburger-5630646_640.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  25% {
+    background: url(../images/Fried\ rice.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  50% {
+    background: url(../images/Jollof\ &\ chicken\ .jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  75% {
+    background: url(../images/Beef\ Supreme\ -\ Pizza.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  100% {
+    background: url(../images/hamburger-5630646_640.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/*  */
+/*  */
 
 .header {
   background-color: rgba(0, 0, 0, 0.8);
